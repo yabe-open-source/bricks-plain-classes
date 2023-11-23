@@ -49,6 +49,7 @@ Equipped with a quick class preview feature, you can quickly preview the CSS cla
 
 ## Credits
 
-- [vue](https://vuejs.org)
+- [Vue.js](https://vuejs.org)
 - [highlight-in-textarea](https://github.com/masterWeber/highlight-in-textarea)
 - [Tribute](https://github.com/zurb/tribute)
+- [autosize](https://github.com/jackmoore/autosize)
