@@ -1,4 +1,4 @@
-.bricks-panel textarea.ykf-brx-plain-classes-input {
+.bricks-panel textarea.yos-brx-plain-classes-input {
     /* margin-top: 4px; */
     min-height: auto;
     form-sizing: content;
@@ -15,12 +15,12 @@
     padding-right: 5.5px;
 }
 
-.bricks-panel textarea.ykf-brx-plain-classes-input::placeholder {
+.bricks-panel textarea.yos-brx-plain-classes-input::placeholder {
     word-spacing: normal !important;
     opacity: 1 !important;
 }
 
-.bricks-panel textarea.ykf-brx-plain-classes-input::selection {
+.bricks-panel textarea.yos-brx-plain-classes-input::selection {
     background-color: var(--builder-bg-accent);
     color: var(--builder-color-accent);
 }
@@ -40,7 +40,7 @@
 }
 
 .hit-container .hit-backdrop,
-.hit-container textarea.ykf-brx-plain-classes-input {
+.hit-container textarea.yos-brx-plain-classes-input {
     word-spacing: 8px !important;
 }
 
@@ -109,7 +109,7 @@
 
 /* https://esm.sh/gh/zurb/tribute@252ec344a7/dist/tribute.css */
 
-.ykf-brx-plain-classes-tribute-container {
+.yos-brx-plain-classes-tribute-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -130,14 +130,14 @@
     min-width: 200px;
 }
 
-.ykf-brx-plain-classes-tribute-container ul {
+.yos-brx-plain-classes-tribute-container ul {
     margin: 0;
     margin-top: 2px;
     padding: 0;
     list-style: none;
 }
 
-.ykf-brx-plain-classes-tribute-container li {
+.yos-brx-plain-classes-tribute-container li {
     padding: 5px 5px;
     cursor: pointer;
     font-size: 11px;
@@ -145,42 +145,42 @@
     position: relative;
 }
 
-.ykf-brx-plain-classes-tribute-container li.highlight {
+.yos-brx-plain-classes-tribute-container li.highlight {
     background: var(--builder-bg-3);
 }
 
-.ykf-brx-plain-classes-tribute-container li.no-match {
+.yos-brx-plain-classes-tribute-container li.no-match {
     cursor: default;
 }
 
-.ykf-brx-plain-classes-tribute-container .menu-highlighted {
+.yos-brx-plain-classes-tribute-container .menu-highlighted {
     font-weight: bold;
 }
 
-.ykf-brx-plain-classes-tribute-container::-webkit-scrollbar {
+.yos-brx-plain-classes-tribute-container::-webkit-scrollbar {
     width: 8px;
 }
 
-.ykf-brx-plain-classes-tribute-container::-webkit-scrollbar-thumb {
+.yos-brx-plain-classes-tribute-container::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, .4);
 }
 
-.ykf-brx-plain-classes-tribute-container::-webkit-scrollbar-thumb {
+.yos-brx-plain-classes-tribute-container::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
 
-.ykf-brx-plain-classes-tribute-container::-webkit-scrollbar-track {
+.yos-brx-plain-classes-tribute-container::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, .2);
 }
 
-.ykf-brx-plain-classes-tribute-container li {
+.yos-brx-plain-classes-tribute-container li {
 }
 
-.ykf-brx-plain-classes-tribute-container li span.class-name span {
+.yos-brx-plain-classes-tribute-container li span.class-name span {
     font-weight: bold;
 }
 
-.ykf-brx-plain-classes-tribute-container li span.class-hint {
+.yos-brx-plain-classes-tribute-container li span.class-hint {
     position: absolute;
     top: 0;
     bottom: 0;

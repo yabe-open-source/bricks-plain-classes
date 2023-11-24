@@ -2,8 +2,8 @@
 
 /**
  * @wordpress-plugin
- * Plugin Name:         Yabe Ko-fi - Bricks Plain Classes
- * Plugin URI:          https://ko-fi.yabe.land
+ * Plugin Name:         Yabe Open Source - Bricks Plain Classes
+ * Plugin URI:          https://os.yabe.land
  * Description:         Bricks builder editor: Quick Plain Classes
  * Version:             1.0.0-DEV
  * Requires at least:   6.0
@@ -11,15 +11,15 @@
  * Author:              Rosua
  * Author URI:          https://rosua.org
  * Donate link:         https://ko-fi.com/Q5Q75XSF7
- * Text Domain:         ykf-brx-plain-classes
+ * Text Domain:         yos-brx-plain-classes
  * Domain Path:         /languages
  *
- * @package             Yabe Ko-fi
+ * @package             Yabe Open Source
  * @author              Joshua Gugun Siagian <suabahasa@gmail.com>
  */
 
 /*
- * This file is part of the Yabe Ko-fi package.
+ * This file is part of the Yabe Open Source package.
  *
  * (c) Joshua <suabahasa@gmail.com>
  *
@@ -29,16 +29,16 @@
 
 declare(strict_types=1);
 
-add_action('wp_enqueue_scripts', 'ykf_brx_plain_classes', 1_000_001);
+add_action('wp_enqueue_scripts', 'yos_brx_plain_classes', 1_000_001);
 
-function ykf_brx_plain_classes()
+function yos_brx_plain_classes()
 {
     if (!function_exists('bricks_is_builder_main') || !bricks_is_builder_main()) {
         return;
     }
 
     add_filter('script_loader_tag', function ($tag, $handle) {
-        if ('ykf-brx-plain-classes' !== $handle) {
+        if ('yos-brx-plain-classes' !== $handle) {
             return $tag;
         }
 
@@ -46,14 +46,14 @@ function ykf_brx_plain_classes()
     }, 1_000_001, 2);
 
     wp_enqueue_style(
-        'ykf-brx-plain-classes',
+        'yos-brx-plain-classes',
         plugins_url('builder.css', __FILE__),
         ['bricks-builder',],
         (string) filemtime(__DIR__ . '/builder.css')
     );
 
     wp_enqueue_script(
-        'ykf-brx-plain-classes',
+        'yos-brx-plain-classes',
         plugins_url('builder.js', __FILE__),
         ['wp-hooks', 'bricks-builder',],
         (string) filemtime(__DIR__ . '/builder.js'),

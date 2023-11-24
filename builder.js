@@ -9,7 +9,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
     const vueGlobalPropIframe = bricksIframe.contentDocument.querySelector('.brx-body').__vue_app__.config.globalProperties;
 
     const textInput = document.createElement('textarea');
-    textInput.classList.add('ykf-brx-plain-classes-input');
+    textInput.classList.add('yos-brx-plain-classes-input');
     textInput.setAttribute('rows', '1');
     textInput.setAttribute('spellcheck', 'false');
     // textInput.setAttribute('placeholder', '⚡ classes');
@@ -23,15 +23,15 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
 
     let autocompleteItems = [];
 
-    wp.hooks.addAction('ykf-brx-plain-classes-autocomplete-items-refresh', 'ykf_brx_plain_classes', () => {
+    wp.hooks.addAction('yos-brx-plain-classes-autocomplete-items-refresh', 'yos_brx_plain_classes', () => {
         // wp hook filters. {value, color?, fontWeight?, namespace?}[]
-        autocompleteItems = wp.hooks.applyFilters('ykf-brx-plain-classes-autocomplete-items', [], textInput.value);
+        autocompleteItems = wp.hooks.applyFilters('yos-brx-plain-classes-autocomplete-items', [], textInput.value);
     });
 
-    wp.hooks.doAction('ykf-brx-plain-classes-autocomplete-items-refresh');
+    wp.hooks.doAction('yos-brx-plain-classes-autocomplete-items-refresh');
 
     const tribute = new Tribute({
-        containerClass: 'ykf-brx-plain-classes-tribute-container',
+        containerClass: 'yos-brx-plain-classes-tribute-container',
 
         autocompleteMode: true,
 
@@ -41,7 +41,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
         noMatchTemplate: '',
 
         values: function (text, cb) {
-            const filters = wp.hooks.applyFilters('ykf-brx-plain-classes-autocomplete-items-query', autocompleteItems, text);
+            const filters = wp.hooks.applyFilters('yos-brx-plain-classes-autocomplete-items-query', autocompleteItems, text);
             cb(filters);
         },
 
@@ -168,7 +168,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
         if (newVal[0] && newVal[1]) {
             nextTick(() => {
                 const panelElementClassesEl = document.querySelector('#bricks-panel-element-classes');
-                if (panelElementClassesEl.querySelector('.ykf-brx-plain-classes-input') === null) {
+                if (panelElementClassesEl.querySelector('.yos-brx-plain-classes-input') === null) {
                     panelElementClassesEl.appendChild(textInput);
                     hit = new HighlightInTextarea(textInput, {
                         highlight: [
@@ -226,7 +226,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
 
     textInput.addEventListener('tribute-active-true', function (e) {
         nextTick(() => {
-            observerAutocomplete.observe(document.querySelector('.ykf-brx-plain-classes-tribute-container>ul'), {
+            observerAutocomplete.observe(document.querySelector('.yos-brx-plain-classes-tribute-container>ul'), {
                 childList: true,
                 subtree: true,
                 attributes: true,
