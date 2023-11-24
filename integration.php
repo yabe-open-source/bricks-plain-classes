@@ -33,26 +33,15 @@ function yos_brx_plain_classes_integration_core_framework()
         return;
     }
 
-    $classes = (new Helper())->getClassNames(['group_by_category' => false,]);
+    $classes = json_encode((new Helper())->getClassNames(['group_by_category' => false]));
 
-    wp_localize_script(
-        'yos-brx-plain-classes',
-        'yos_brx_plain_classes_core_framework',
-        [
-            'classes' => $classes,
-        ]
-    );
-
-    $inline_script = <<<JS
+    wp_add_inline_script('yos-brx-plain-classes', <<<JS
         document.addEventListener('DOMContentLoaded', function () {
-            yos_brx_plain_classes_core_framework.classes = Object.values(yos_brx_plain_classes_core_framework.classes).map((value) => ({value: value}));
             wp.hooks.addFilter('yos-brx-plain-classes-autocomplete-items', 'yos_brx_plain_classes_core_framework', function (items) {
-                return [...items, ...yos_brx_plain_classes_core_framework.classes];
+                return [...items, ...Object.values({$classes}).map((value) => ({ value: value }))];
             });
         });
-    JS;
-
-    wp_add_inline_script('yos-brx-plain-classes', $inline_script, 'after');
+    JS, 'after');
 }
 
 // Automatic.css (ACSS) integration
@@ -62,26 +51,13 @@ function yos_brx_plain_classes_integration_acss()
         return;
     }
 
-    $classes = (new Classes())->load();
+    $classes = json_encode((new Classes())->load());
 
-    wp_localize_script(
-        'yos-brx-plain-classes',
-        'yos_brx_plain_classes_acss',
-        [
-            'classes' => $classes,
-        ]
-    );
-
-    $inline_script = <<<JS
+    wp_add_inline_script('yos-brx-plain-classes', <<<JS
         document.addEventListener('DOMContentLoaded', function () {
-            yos_brx_plain_classes_acss.classes = Object.values(yos_brx_plain_classes_acss.classes).map((value) => ({value: value}));
             wp.hooks.addFilter('yos-brx-plain-classes-autocomplete-items', 'yos_brx_plain_classes_acss', function (items) {
-                return [...items, ...yos_brx_plain_classes_acss.classes];
+                return [...items, ...Object.values({$classes}).map((value) => ({ value: value }))];
             });
         });
-    JS;
-
-    wp_add_inline_script('yos-brx-plain-classes', $inline_script, 'after');
+    JS, 'after');
 }
-
-// Yabe Siul integration: built-in Yabe Siul plugin

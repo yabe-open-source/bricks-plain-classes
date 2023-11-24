@@ -43,6 +43,15 @@ Equipped with a quick class preview feature, you can quickly preview the CSS cla
 
 ![Quick Plain Classes](./screenshot-0.png)
 
+## Auto-complete
+
+- **[Tailwind CSS](https://tailwindcss.com)**: provided by the [Yabe Siul](https://siul.yabe.land) plugin
+- **[Core Framework](https://coreframework.com)**: built-in
+- **[Automatic.css (ACSS)](https://automaticcss.com)**: built-in
+- **[Master CSS](https://css.master.co)**: provided by the [Yabe Open Source - Bricks Master CSS](https://github.com/yabe-open-source/bricks-master-css) plugin
+- **[Bootstrap 5](https://getbootstrap.com)**: available as a snippet code https://github.com/yabe-open-source/bricks-plain-classes/discussions/2
+- **[Bricks Global Classes](https://bricksbuilder.io/)**: available as a snippet code https://github.com/yabe-open-source/bricks-plain-classes/discussions/3
+
 ## License
 
 [GPL-3.0](./LICENSE)
