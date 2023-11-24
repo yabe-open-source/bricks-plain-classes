@@ -226,12 +226,15 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
 
     textInput.addEventListener('tribute-active-true', function (e) {
         nextTick(() => {
-            observerAutocomplete.observe(document.querySelector('.yos-brx-plain-classes-tribute-container>ul'), {
-                childList: true,
-                subtree: true,
-                attributes: true,
-                attributeFilter: ['class']
-            });
+            const menuAutocompleteItemeEl = document.querySelector('.yos-brx-plain-classes-tribute-container>ul');
+            if (menuAutocompleteItemeEl) {
+                observerAutocomplete.observe(menuAutocompleteItemeEl, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+            }
         });
     });
 
