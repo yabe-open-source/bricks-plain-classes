@@ -197,7 +197,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
         nextTick(() => {
             hit.handleInput();
             autosize.update(textInput);
-            tribute.setMenuContainer(document.querySelector('div.hit-container'));
+            // tribute.setMenuContainer(document.querySelector('div.hit-container'));
             tribute.hideMenu();
         });
     };
@@ -224,9 +224,13 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
         });
     });
 
+    let menuAutocompleteItemeEl = null;
+
     textInput.addEventListener('tribute-active-true', function (e) {
+        if (menuAutocompleteItemeEl === null) {
+            menuAutocompleteItemeEl = document.querySelector('.yos-brx-plain-classes-tribute-container>ul');
+        }
         nextTick(() => {
-            const menuAutocompleteItemeEl = document.querySelector('.yos-brx-plain-classes-tribute-container>ul');
             if (menuAutocompleteItemeEl) {
                 observerAutocomplete.observe(menuAutocompleteItemeEl, {
                     childList: true,
