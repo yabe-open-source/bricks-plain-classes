@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 use Automatic_CSS\Model\Config\Classes;
 use CoreFramework\Helper;
+use SIUL;
 
 add_action('wp_enqueue_scripts', 'yos_brx_plain_classes_integration', 1_000_001);
 
@@ -22,8 +23,38 @@ function yos_brx_plain_classes_integration()
         return;
     }
 
+    yos_brx_plain_classes_integration_siul();
     yos_brx_plain_classes_integration_core_framework();
     yos_brx_plain_classes_integration_acss();
+}
+
+// Yabe Siul (SIUL) integration
+function yos_brx_plain_classes_integration_siul()
+{
+    if (!class_exists(SIUL::class)) {
+        return;
+    }
+
+    wp_add_inline_script('yos-brx-plain-classes', <<<JS
+        document.addEventListener('DOMContentLoaded', function () {
+            iframeWindow = document.getElementById('bricks-builder-iframe');
+
+            wp.hooks.addFilter('yos-brx-plain-classes-autocomplete-items-query', 'yos-brx-plain-classes', async (autocompleteItems, text) => {
+                const siul_suggestions = await iframeWindow.contentWindow.wp.hooks.applyFilters('siul.module.autocomplete', text)
+                    .then((suggestions) => suggestions.slice(0, 50))
+                    .then((suggestions) => {
+                        return suggestions.map((s) => {
+                            return {
+                                value: [...s.variants, s.name].join(':'),
+                                color: s.color,
+                            };
+                        });
+                    });
+
+                return [...siul_suggestions, ...autocompleteItems];
+            });
+        });
+    JS, 'after');
 }
 
 // Core Framework (CF) integration

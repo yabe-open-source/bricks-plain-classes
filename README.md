@@ -41,11 +41,12 @@ Equipped with a quick class preview feature, you can quickly preview the CSS cla
 2. Select an element
 3. The `⚡️` emoji is visible on the panel where you can start typing the class name
 
-![Quick Plain Classes](./screenshot-0.png)
+![Quick Plain Classes](./screenshot-0.jpg)
 
 ## Auto-complete
 
-- **[Tailwind CSS](https://tailwindcss.com)**: provided by the [Yabe Siul](https://siul.yabe.land) plugin
+- **[Tailwind CSS](https://tailwindcss.com)**: built-in. provided by the [Yabe Siul](https://rosua.org/downloads/yabe-siul) plugin
+
 - **[Core Framework](https://coreframework.com)**: built-in
 - **[Automatic.css (ACSS)](https://automaticcss.com)**: built-in
 - **[Master CSS](https://css.master.co)**: provided by the [Yabe Open Source - Bricks Master CSS](https://github.com/yabe-open-source/bricks-master-css) plugin

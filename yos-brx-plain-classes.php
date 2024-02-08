@@ -5,7 +5,7 @@
  * Plugin Name:         Yabe Open Source - Bricks Plain Classes
  * Plugin URI:          https://os.yabe.land
  * Description:         Bricks builder editor: Quick Plain Classes
- * Version:             1.0.0-DEV
+ * Version:             1.0.0
  * Requires at least:   6.0
  * Requires PHP:        7.4
  * Author:              Rosua

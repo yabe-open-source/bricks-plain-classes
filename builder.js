@@ -12,7 +12,6 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
     textInput.classList.add('yos-brx-plain-classes-input');
     textInput.setAttribute('rows', '1');
     textInput.setAttribute('spellcheck', 'false');
-    // textInput.setAttribute('placeholder', '⚡ classes');
 
     const visibleElementPanel = ref(false);
     const activeElementId = ref(null);
@@ -40,8 +39,8 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
 
         noMatchTemplate: '',
 
-        values: function (text, cb) {
-            const filters = wp.hooks.applyFilters('yos-brx-plain-classes-autocomplete-items-query', autocompleteItems, text);
+        values: async function (text, cb) {
+            const filters = await wp.hooks.applyFilters('yos-brx-plain-classes-autocomplete-items-query', autocompleteItems, text);
             cb(filters);
         },
 
@@ -195,7 +194,9 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
 
     function onTextInputChanges() {
         nextTick(() => {
-            hit.handleInput();
+            try {
+                hit.handleInput();
+            } catch (error) { }
             autosize.update(textInput);
             // tribute.setMenuContainer(document.querySelector('div.hit-container'));
             tribute.hideMenu();
