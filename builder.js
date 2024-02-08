@@ -35,7 +35,7 @@ document.getElementById('bricks-builder-iframe').addEventListener('load', functi
         autocompleteMode: true,
 
         // Limits the number of items in the menu
-        menuItemLimit: 25,
+        menuItemLimit: 30,
 
         noMatchTemplate: '',
 

@@ -40,8 +40,12 @@ function yos_brx_plain_classes_integration_siul()
             iframeWindow = document.getElementById('bricks-builder-iframe');
 
             wp.hooks.addFilter('yos-brx-plain-classes-autocomplete-items-query', 'yos-brx-plain-classes', async (autocompleteItems, text) => {
+                if (!iframeWindow.contentWindow.siul?.autocomplete) {
+                    return autocompleteItems;
+                }
+                
                 const siul_suggestions = await iframeWindow.contentWindow.wp.hooks.applyFilters('siul.module.autocomplete', text)
-                    .then((suggestions) => suggestions.slice(0, 50))
+                    .then((suggestions) => suggestions.slice(0, 45))
                     .then((suggestions) => {
                         return suggestions.map((s) => {
                             return {
