@@ -30,7 +30,7 @@ function yos_brx_plain_classes_integration()
 // Yabe Siul (SIUL) integration
 function yos_brx_plain_classes_integration_siul()
 {
-    if (!class_exists(\SIUL::class || !class_exists(\Yabe\Siul\Plugin::class))) {
+    if (!class_exists(\SIUL::class) || !class_exists(\Yabe\Siul\Plugin::class)) {
         return;
     }
 
