@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 use Automatic_CSS\Model\Config\Classes;
 use CoreFramework\Helper;
-use SIUL;
 
 add_action('wp_enqueue_scripts', 'yos_brx_plain_classes_integration', 1_000_001);
 
@@ -31,7 +30,7 @@ function yos_brx_plain_classes_integration()
 // Yabe Siul (SIUL) integration
 function yos_brx_plain_classes_integration_siul()
 {
-    if (!class_exists(SIUL::class)) {
+    if (!class_exists(\SIUL::class || !class_exists(\Yabe\Siul\Plugin::class))) {
         return;
     }
 
